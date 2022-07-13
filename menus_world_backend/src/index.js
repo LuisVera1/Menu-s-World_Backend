@@ -3,12 +3,12 @@ require("dotenv").config(); // las variables del .env se agregan a process.env
 const express = require("express");
 const mongoose = require("mongoose");
 
-const routerKoders = require("./routers/koder.routers");
+//const routerMenus = require("./routers/menu.routers");
 const userRouter = require("./routers/user.router.js");
 
 const server = express();
 server.use(express.json());
-server.use("/koders", routerKoders);
+//server.use("/koders", routerMenus);
 server.use("/users", userRouter);
 
 const PORT = process.env.PORT;

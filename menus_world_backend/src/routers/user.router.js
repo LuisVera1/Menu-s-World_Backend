@@ -1,6 +1,6 @@
 const { response } = require("express");
 const express = require("express");
-const User = require("../usecases/user.usecase");
+const User = require("../usescases/user.usecase");
 const auth = require("../middlewares/auth");
 
 const router = express.Router();
