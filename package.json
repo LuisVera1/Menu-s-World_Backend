@@ -1,0 +1,24 @@
+{
+  "name": "backend_menus_world",
+  "version": "1.0.0",
+  "description": "Backend_App_MenusWorld",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisVera1/Menu-s-World_Backend.git"
+  },
+  "keywords": [
+    "Backend",
+    "menus",
+    "world"
+  ],
+  "author": "Nestor Ramirez - Luis Vera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuisVera1/Menu-s-World_Backend/issues"
+  },
+  "homepage": "https://github.com/LuisVera1/Menu-s-World_Backend#readme"
+}
