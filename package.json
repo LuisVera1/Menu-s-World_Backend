@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/LuisVera1/Menu-s-World_Backend/issues"
   },
-  "homepage": "https://github.com/LuisVera1/Menu-s-World_Backend#readme"
+  "homepage": "https://github.com/LuisVera1/Menu-s-World_Backend#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
