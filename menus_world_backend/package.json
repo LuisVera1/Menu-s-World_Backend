@@ -1,0 +1,17 @@
+{
+  "name": "menus_world_backend",
+  "version": "1.0.0",
+  "description": "Backend Menus World",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Backend",
+    "Menu",
+    "World",
+    "Kodemia"
+  ],
+  "author": "Luis Vera Nestor Ramirez",
+  "license": "ISC"
+}
