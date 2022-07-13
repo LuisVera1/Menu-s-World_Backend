@@ -13,5 +13,8 @@
     "Kodemia"
   ],
   "author": "Luis Vera Nestor Ramirez",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
