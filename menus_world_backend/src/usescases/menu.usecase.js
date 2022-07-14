@@ -1,33 +1,33 @@
-const Koder = require("../models/koder.model");
+const Menu = require("../models/menurestaurant.model");
 
-async function getKoders(filter) {
-  const koders = await Koder.find(filter);
+async function getMenus(filter) {
+  const menus = await Menu.find(filter);
 
-  return koders;
+  return menus;
 }
 
-async function createKoder(koder) {
-  const newKoder = new Koder(koder); // Instancia de modelo Koder
+async function createMenu(menu) {
+  const newMenu = new Menu(menu); // Instancia de modelo Koder
 
-  await Koder.create(newKoder);
+  await Menu.create(newMenu);
 
-  return newKoder;
+  return newMenu;
 }
 
-async function updateKoder(id, koder) {
+async function updateMenu(id, menu) {
   const filter = {
     _id: id,
   };
 
-  await Koder.findOneAndUpdate(filter, koder);
+  await Menu.findOneAndUpdate(filter, menu);
 
-  const updatedKoder = Koder.findOne(filter);
+  const updatedMenu = Menu.findOne(filter);
 
-  return updatedKoder;
+  return updatedMenu;
 }
 
 module.exports = {
-  getKoders,
-  createKoder,
-  updateKoder,
+  getMenus,
+  createMenu,
+  updateMenu,
 };
