@@ -1,4 +1,4 @@
-const Menu = require("../models/menu.model");
+const Menu = require("../models/menurestaurant.model");
 
 async function getMenus(filter) {
   const menus = await Menu.find(filter);
@@ -9,7 +9,7 @@ async function getMenus(filter) {
 async function createMenu(menu) {
   const newMenu = new Menu(menu); // Instancia de modelo Koder
 
-  await Menu.create(newMenus);
+  await Menu.create(newMenu);
 
   return newMenu;
 }

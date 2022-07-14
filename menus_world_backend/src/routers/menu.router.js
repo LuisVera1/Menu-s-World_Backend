@@ -1,5 +1,5 @@
 const express = require("express");
-const Menu = require("../usecases/menu.usecase");
+const Menu = require("../usescases/menu.usecase");
 
 const router = express.Router();
 
@@ -35,7 +35,7 @@ router.patch("/:id", async (req, res) => {
   const id = req.params.id;
   const MenuInfo = req.body;
 
-  const updatedMenu = await Menu.updateMenu(id, menuInfo);
+  const updatedMenu = await Menu.updateMenu(id, MenuInfo);
 
   res.json(updatedMenu);
 });
