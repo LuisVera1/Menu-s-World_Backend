@@ -18,7 +18,7 @@ const MenuSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true,
-    minlength: 1,
+    minlength: 2,
   },
 });
 
