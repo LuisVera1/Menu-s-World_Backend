@@ -32,4 +32,13 @@ router.patch("/:id", async (req, res) => {
   res.json(updatedMenu);
 });
 
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  const menuInfo = req.body;
+
+  const deleteMenu = await Menu.deleteMenu(id, menuInfo);
+
+  res.json(deleteMenu);
+});
+
 module.exports = router;
