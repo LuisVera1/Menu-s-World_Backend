@@ -4,24 +4,16 @@ const Menu = require("../usescases/menu.usecase");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const dishName = Number(req.query.dishName);
-  const price = req.query.price;
+  try {
+    const allMenu = await Menu.getMenus();
 
-  const filtro = {};
+    res.json(allMenu);
+  } catch (err) {
+    console.error(err);
 
-  const priceExist = !Number.isNaN(price);
-  if (priceExist) {
-    filtro.price = price; // {edad: edad}
+    res.statusCode = 500;
+    res.json({ err });
   }
-
-  const dishExist = dish !== undefined;
-  if (dishExist) {
-    filtro.dishName = dish; // {genero: genero}
-  }
-
-  const menus = await Menu.getMenus(filtro);
-
-  res.json(menus);
 });
 
 router.post("/", async (req, res) => {
