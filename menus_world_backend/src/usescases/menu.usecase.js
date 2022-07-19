@@ -26,8 +26,21 @@ async function updateMenu(id, menu) {
   return updatedMenu;
 }
 
+async function deleteMenu(id, menu) {
+  const filter = {
+    _id: id,
+  };
+
+  await Menu.findOneAndDelete(filter, menu);
+
+  const updatedMenu = Menu.findOne(filter);
+
+  return updatedMenu;
+}
+
 module.exports = {
   getMenus,
   createMenu,
   updateMenu,
+  deleteMenu,
 };
