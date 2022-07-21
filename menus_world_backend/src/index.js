@@ -22,23 +22,11 @@ const DB_NAME = process.env.DB_NAME;
 
 const URL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`;
 
-function crearMiddlware() {
-  console.log("Creando Middlware");
-  return (req, res, next) => {
-    console.log("Middlware fabricado");
-    console.log("Method", req.method);
-    console.log("URL", req.originalUrl);
-
-    next();
-  };
-}
-
 server.use((req, res, next) => {
   console.log("Hola desde este otro middleware");
 
   next();
 });
-server.use(crearMiddlware());
 
 mongoose
   .connect(URL)
