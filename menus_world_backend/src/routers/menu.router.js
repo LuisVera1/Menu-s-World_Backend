@@ -16,6 +16,21 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/submenu", async (req, res) => {
+  const category = req.query.category;
+
+  const filtro = {};
+
+  const categoryExiste = category !== undefined;
+  if (categoryExiste) {
+    filtro.category = category;
+  }
+
+  const categorys = await Menu.getMenus(filtro);
+
+  res.json(categorys);
+});
+
 router.post("/", async (req, res) => {
   const newMenu = await Menu.createMenu(req.body);
 

@@ -21,7 +21,6 @@ router.get("/", auth, async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const newAdmin = req.body;
-    console.log(newAdmin);
     const createdAdmin = await Admin.createAdminUser(newAdmin);
 
     res.statusCode = 201;
