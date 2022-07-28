@@ -16,6 +16,36 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/submenu", async (req, res) => {
+  const category = req.query.category;
+
+  const filtro = {};
+
+  const categoryExiste = category !== undefined;
+  if (categoryExiste) {
+    filtro.category = category;
+  }
+
+  const categorys = await Menu.getMenus(filtro);
+
+  res.json(categorys);
+});
+
+router.get("/edit", async (req, res) => {
+  const id = req.query._id;
+
+  const filtro = {};
+
+  const idExiste = id !== undefined;
+  if (idExiste) {
+    filtro._id = id;
+  }
+
+  const ids = await Menu.getMenus(filtro);
+
+  res.json(ids);
+});
+
 router.post("/", async (req, res) => {
   const newMenu = await Menu.createMenu(req.body);
 

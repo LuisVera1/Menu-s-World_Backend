@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const AdminSchema = new mongoose.Schema({
-  name: {
+  adminName: {
     lowercase: true,
     maxLength: 100,
     minLength: 4,
@@ -19,8 +19,8 @@ const AdminSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
-  pass: {
-    maxLength: 30,
+  password: {
+    maxLength: 100,
     minLength: 8,
     required: true,
     trim: true,
