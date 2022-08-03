@@ -23,6 +23,7 @@ const MenuSchema = new mongoose.Schema({
     required: true,
     minlength: 2,
   },
+  image_URL: String
 });
 
 const Menu = mongoose.model("menus", MenuSchema);
