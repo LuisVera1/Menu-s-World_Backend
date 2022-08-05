@@ -55,32 +55,7 @@ router.get("/edit", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  // image AWS
-  const s3 = new aws.S3();
-  const folder = req.body.folder;
-  const fileName = req.body.fileName;
-
-
-  const s3Params = {
-    Bucket: S3_BUCKET + '/' + folder,
-    Key: fileName,
-    Expires: 500,
-    ACL: 'public-read'
-};
-s3.getSignedUrl('putObject', s3Params,(err, data) => {
-  if (err) {
-    console.log(err);
-    res.json({ success: false, error: err })
-}
-const returnData = {
-  signedRequest: data,
-  url: `https://${S3_BUCKET}.s3.amazonaws.com/${folder}/${fileName}`
-};
-res.json({ success: true, data: { returnData } });
-})
-
   const newMenu = await Menu.createMenu(req.body);
-
   res.statusCode = 201;
   res.json(newMenu);
 });
