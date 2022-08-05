@@ -6,13 +6,21 @@ function getAll() {
   return User.find();
 }
 
-async function createUser({ username, email, password }) {
+async function createUser({
+  username,
+  email,
+  password,
+  restaurants,
+  userType,
+}) {
   const encryptedPassword = await encrypt(password);
 
   return User.create({
     username,
     email,
     password: encryptedPassword,
+    restaurants,
+    userType,
   });
 }
 
