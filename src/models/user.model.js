@@ -18,6 +18,28 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 4,
   },
+
+  userType: {
+    type: String,
+    minlength: 4,
+    maxlength: 20,
+  },
+  restaurants: [
+    {
+      maxLength: 100,
+      minLength: 4,
+      trim: true,
+      type: Array,
+    },
+  ],
+  coments: [
+    {
+      maxLength: 100,
+      minLength: 4,
+      trim: true,
+      type: Array,
+    },
+  ],
 });
 
 const User = mongoose.model("users", userSchema);
