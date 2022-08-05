@@ -24,8 +24,8 @@ async function createUser({
   });
 }
 
-async function login({ email, password }) {
-  const userFound = await User.findOne({ email });
+async function login({ username, password }) {
+  const userFound = await User.findOne({ username });
 
   if (!userFound) throw new Error("User not found");
 
@@ -35,7 +35,6 @@ async function login({ email, password }) {
   if (!isCorrectPassword) throw new Error("Wrong password");
 
   const token = sign({ id: userFound._id });
-
   return token;
 }
 
