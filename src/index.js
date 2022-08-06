@@ -12,7 +12,6 @@ server.use(cors());
 server.use(express.json());
 server.use("/menu", routerMenus);
 server.use("/users", userRouter);
-server.use("/admin", adminRouter);
 
 const PORT = process.env.PORT;
 
