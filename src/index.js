@@ -23,7 +23,7 @@ const DB_NAME = process.env.DB_NAME;
 const URL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`;
 
 server.use((req, res, next) => {
-  console.log("Hola desde este otro middleware");
+  //console.log("Hola desde este otro middleware");
 
   next();
 });
