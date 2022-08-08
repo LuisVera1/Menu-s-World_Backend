@@ -6,14 +6,14 @@ const cors = require("cors");
 
 const routerMenus = require("./routers/menu.router.js");
 const userRouter = require("./routers/user.router.js");
-const adminRouter = require("./routers/adminUser.router.js");
+const routerDetalle = require("./routers/detalle.router.js")
 
 const server = express();
 server.use(cors());
 server.use(express.json());
 server.use("/menu", routerMenus);
 server.use("/users", userRouter);
-server.use("/admin", adminRouter);
+server.use("/detalle", routerDetalle)
 
 const PORT = process.env.PORT;
 
