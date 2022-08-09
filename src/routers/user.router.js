@@ -5,7 +5,7 @@ const auth = require("../middlewares/auth");
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
     const allUsers = await User.getAll();
 
@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const newUser = req.body;
-    console.log(newUser);
+    //console.log(newUser);
     const createdUser = await User.createUser(newUser);
 
     res.statusCode = 201;
@@ -37,13 +37,14 @@ router.post("/", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const loginInfo = req.body;
-
+    //console.log(loginInfo);
     const token = await User.login(loginInfo);
-
+    const info = await User.getUser(loginInfo);
     res.json({
       success: true,
       data: {
         token,
+        info,
       },
     });
   } catch (error) {

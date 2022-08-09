@@ -38,8 +38,28 @@ async function login({ username, password }) {
   return token;
 }
 
+async function getUser({ username, password }) {
+  const userFound = await User.findOne({ username });
+
+  if (!userFound) throw new Error("User not found");
+
+  const encryptedPassword = userFound.password;
+  const isCorrectPassword = await compare(password, encryptedPassword);
+
+  if (!isCorrectPassword) throw new Error("Wrong password");
+
+  const token = {
+    id: userFound._id,
+    userName: userFound.username,
+    userCategory: userFound.userType,
+    userRestaurant: userFound.restaurants,
+  };
+  return token;
+}
+
 module.exports = {
   getAll,
   createUser,
   login,
+  getUser,
 };

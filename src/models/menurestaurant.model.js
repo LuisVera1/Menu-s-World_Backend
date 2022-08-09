@@ -1,10 +1,16 @@
 const mongoose = require("mongoose");
 
 const MenuSchema = new mongoose.Schema({
+  restaurantName: {
+    type: String,
+    minlength: 4,
+    maxlength: 100,
+    required: true,
+  },
   dishName: {
     type: String,
     minlength: 4,
-    maxlength: 20,
+    maxlength: 100,
     required: true,
   },
   category: {
