@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
   userType: {
     type: String,
     minlength: 4,
-    maxlength: 20,
+    maxlength: 50,
   },
   restaurants: [
     {
