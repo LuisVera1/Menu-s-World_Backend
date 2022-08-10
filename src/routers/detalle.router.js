@@ -17,19 +17,14 @@ router.get('/:id', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
 	const id = req.params.id;
-	const obj = req.body;
-
-	const now = new Date();
-	const CompleteObj = {
-		...obj,
-		...{
-			date: now,
-			idUser: '62d53a3c7',
-		},
-	};
-
-	const updateArrayComments = await Menu.addNewComment(id, CompleteObj);
-	res.json(updateArrayComments);
+	const data = req.body;
+	try{
+		const updateArrayComments = await Menu.addNewComment(id, data);
+		res.json(updateArrayComments);
+	} catch (err) {
+		res.statusCode = 500;
+		res.json({ err });
+	}
 });
 
 module.exports = router;
