@@ -5,7 +5,7 @@ const Menu = require("../usescases/menu.usecase");
 const router = express.Router();
 // config bucket AWS image
 aws.config.update({
-  region: "us-east-1",
+  region: 'us-east-2',
   accessKeyId: process.env.AWSAccessKeyId,
   secretAccessKey: process.env.AWSSecretKey,
 });
