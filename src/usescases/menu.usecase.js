@@ -17,13 +17,14 @@ async function createMenu(menu) {
 async function updateMenu(id, menu) {
   const filter = {
     id: id,
+  };
 
   await Menu.findOneAndUpdate(filter, menu);
 
   const updatedMenu = Menu.findOne(filter);
 
   return updatedMenu;
-}}
+}
 
 async function deleteMenu(id, menu) {
   const filter = {
