@@ -1,10 +1,16 @@
 const mongoose = require("mongoose");
 
 const MenuSchema = new mongoose.Schema({
+  restaurantName: {
+    type: String,
+    minlength: 4,
+    maxlength: 100,
+    required: true,
+  },
   dishName: {
     type: String,
     minlength: 4,
-    maxlength: 20,
+    maxlength: 100,
     required: true,
   },
   category: {
@@ -15,16 +21,39 @@ const MenuSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  comments: {
-    type: Array,
-  },
+  comments: [
+    {
+      user: { type: String },
+      date: { type: Date },
+      rating: { type: Number },
+      comment: { type: String },
+      idUser: { type: String },
+    },
+  ],
+
   price: {
     type: Number,
     required: true,
     minlength: 2,
   },
+  image_Url: {
+    type: String,
+  },
+
 });
 
 const Menu = mongoose.model("menus", MenuSchema);
 
 module.exports = Menu;
+
+/*
+{
+	"user": "Oliver Alejandro",
+	"date": "2022-08-07T07:47:22",  GMT -5
+	"rating": 5,
+	"idComment": 1,
+	"comment": "Muy bueno, perfectamente cocido",
+	"idUser": "62d53a3c7"
+}
+*/
+

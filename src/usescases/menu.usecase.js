@@ -16,8 +16,7 @@ async function createMenu(menu) {
 
 async function updateMenu(id, menu) {
   const filter = {
-    _id: id,
-  };
+    id: id,
 
   await Menu.findOneAndUpdate(filter, menu);
 

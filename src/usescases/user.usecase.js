@@ -6,18 +6,26 @@ function getAll() {
   return User.find();
 }
 
-async function createUser({ username, email, password }) {
+async function createUser({
+  username,
+  email,
+  password,
+  restaurants,
+  userType,
+}) {
   const encryptedPassword = await encrypt(password);
 
   return User.create({
     username,
     email,
     password: encryptedPassword,
+    restaurants,
+    userType,
   });
 }
 
-async function login({ email, password }) {
-  const userFound = await User.findOne({ email });
+async function login({ username, password }) {
+  const userFound = await User.findOne({ username });
 
   if (!userFound) throw new Error("User not found");
 
@@ -27,7 +35,25 @@ async function login({ email, password }) {
   if (!isCorrectPassword) throw new Error("Wrong password");
 
   const token = sign({ id: userFound._id });
+  return token;
+}
 
+async function getUser({ username, password }) {
+  const userFound = await User.findOne({ username });
+
+  if (!userFound) throw new Error("User not found");
+
+  const encryptedPassword = userFound.password;
+  const isCorrectPassword = await compare(password, encryptedPassword);
+
+  if (!isCorrectPassword) throw new Error("Wrong password");
+
+  const token = {
+    id: userFound._id,
+    userName: userFound.username,
+    userCategory: userFound.userType,
+    userRestaurant: userFound.restaurants,
+  };
   return token;
 }
 
@@ -35,4 +61,5 @@ module.exports = {
   getAll,
   createUser,
   login,
+  getUser,
 };
