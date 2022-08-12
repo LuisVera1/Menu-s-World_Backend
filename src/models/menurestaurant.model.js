@@ -30,6 +30,7 @@ const MenuSchema = new mongoose.Schema({
       idUser: { type: String },
     },
   ],
+
   price: {
     type: Number,
     required: true,
@@ -38,6 +39,7 @@ const MenuSchema = new mongoose.Schema({
   image_Url: {
     type: String,
   },
+
 });
 
 const Menu = mongoose.model("menus", MenuSchema);
@@ -54,3 +56,4 @@ module.exports = Menu;
 	"idUser": "62d53a3c7"
 }
 */
+

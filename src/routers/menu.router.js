@@ -11,6 +11,7 @@ aws.config.update({
 });
 const S3_BUCKET = process.env.bucket;
 
+
 router.get("/", async (req, res) => {
   try {
     const allMenu = await Menu.getMenus();
@@ -62,6 +63,7 @@ router.get("/edit", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const newMenu = await Menu.createMenu(req.body);
+
   res.statusCode = 201;
   res.json(newMenu);
 });
