@@ -23,7 +23,7 @@ async function updateMenu(id, menu) {
   const updatedMenu = Menu.findOne(filter);
 
   return updatedMenu;
-}
+}}
 
 async function deleteMenu(id, menu) {
   const filter = {
