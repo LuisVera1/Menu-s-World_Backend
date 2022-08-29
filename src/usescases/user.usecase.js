@@ -24,8 +24,8 @@ async function createUser({
   });
 }
 
-async function login({ username, password }) {
-  const userFound = await User.findOne({ username });
+async function login({ email, password }) {
+  const userFound = await User.findOne({ email });
 
   if (!userFound) throw new Error("User not found");
 
@@ -38,8 +38,8 @@ async function login({ username, password }) {
   return token;
 }
 
-async function getUser({ username, password }) {
-  const userFound = await User.findOne({ username });
+async function getUser({ email, password }) {
+  const userFound = await User.findOne({ email });
 
   if (!userFound) throw new Error("User not found");
 

@@ -39,21 +39,8 @@ const MenuSchema = new mongoose.Schema({
   image_Url: {
     type: String,
   },
-
 });
 
 const Menu = mongoose.model("menus", MenuSchema);
 
 module.exports = Menu;
-
-/*
-{
-	"user": "Oliver Alejandro",
-	"date": "2022-08-07T07:47:22",  GMT -5
-	"rating": 5,
-	"idComment": 1,
-	"comment": "Muy bueno, perfectamente cocido",
-	"idUser": "62d53a3c7"
-}
-*/
-
