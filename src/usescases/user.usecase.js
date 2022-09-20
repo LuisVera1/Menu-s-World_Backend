@@ -34,7 +34,12 @@ async function login({ email, password }) {
 
   if (!isCorrectPassword) throw new Error("Wrong password");
 
-  const token = sign({ id: userFound._id });
+  const token = sign({
+    id: userFound._id,
+    username: userFound.username,
+    userType: userFound.userType,
+    restaurants: userFound.restaurants,
+  });
   return token;
 }
 
