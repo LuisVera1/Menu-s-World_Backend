@@ -5,7 +5,6 @@ const auth = require("../middlewares/auth");
 
 const router = express.Router();
 
-
 router.get("/", auth, async (req, res) => {
   try {
     const allUsers = await User.getAll();
@@ -47,7 +46,6 @@ router.post("/login", async (req, res) => {
       data: {
         token,
         info,
-
       },
     });
   } catch (error) {

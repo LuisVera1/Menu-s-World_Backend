@@ -1,6 +1,6 @@
 const jwt = require("../lib/jwt");
 
-const auth = (request, response, next) => {
+const authAdmin = (request, response, next) => {
   try {
     // Verificar el token
     console.log("request headers", request.headers);
@@ -20,4 +20,4 @@ const auth = (request, response, next) => {
   // next()
 };
 
-module.exports = auth;
+module.exports = authAdmin;
